@@ -8,7 +8,11 @@
    allow your implementation to work properly. */
 #define STUB_FUNCS
 #ifdef STUB_FUNCS
-void shutdown(void) {}
+//void uprog_shutdown(void) {
+//outw(0xB004, 0x0|0x2000);
+//outw(0x604, 0x0|0x2000);
+//return uprog_shutdown();
+//}
 #endif
 
 
@@ -16,6 +20,6 @@ int
 main(int argc, char * argv[])
 {
     printf(1, "BYE~\n");
-    shutdown();
+    uprog_shut();
     exit(); //return 0;
 }

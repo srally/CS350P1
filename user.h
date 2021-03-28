@@ -39,3 +39,4 @@ void free(void*);
 int atoi(const char*);
 
 void enable_sched_trace(int enable);
+void uprog_shut(void);

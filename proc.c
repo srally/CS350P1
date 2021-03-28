@@ -76,6 +76,10 @@ found:
   return p;
 }
 
+void uprog_shut(){
+  return uprog_shut();
+}
+
 //PAGEBREAK: 32
 // Set up first user process.
 void
