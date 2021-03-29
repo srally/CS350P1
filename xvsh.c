@@ -54,7 +54,7 @@ int process_normal(char **tok, int bg)
     // your implementation here
     int x=fork();
     if(x>0 && bg<1){
-      x=wait()
+      x=wait();
     }
     else if(x==0){
       if(exec(*tok,tok)==-1){
@@ -62,7 +62,7 @@ int process_normal(char **tok, int bg)
       }
     }
     else if(bg>1){
-      printf(1, "[pid %d] runs as a background pprocess \n", x);
+      printf(1, "[pid %d] runs as a background process \n", x);
     }
     // note that exec(*tok, tok) is the right way to invoke exec in xv6
     return 0;
