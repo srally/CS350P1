@@ -41,12 +41,29 @@ int main(int argc, char *argv[])
 int exit_check(char **tok, int num_tok)
 {
     // your implementation here
-    return 0;
+    if(!(strcmp(tok[0],"exit"))){
+      return 1;
+    }
+    else{
+      return 0;
+    }
 }
 
 int process_normal(char **tok, int bg)
 {
     // your implementation here
+    int x=fork();
+    if(x>0 && bg<1){
+      x=wait()
+    }
+    else if(x==0){
+      if(exec(*tok,tok)==-1){
+        printf(1, "Cannot run this command %s \n", *tok);
+      }
+    }
+    else if(bg>1){
+      printf(1, "[pid %d] runs as a background pprocess \n", x);
+    }
     // note that exec(*tok, tok) is the right way to invoke exec in xv6
     return 0;
 }
@@ -96,6 +113,7 @@ int process_one_cmd(char* buf)
     /*Check buid-in exit command */
     if (exit_check(tok, num_tok))
     {
+        wait();
         /*some code here to wait till all children exit() before exit*/
 	// your implementation here
         exit();
@@ -162,4 +180,3 @@ cont:
     }
     /* NOTREACHED */
 }
-
